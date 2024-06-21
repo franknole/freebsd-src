@@ -170,7 +170,7 @@
 #define	MADV_NOCORE	8	/* do not include these pages in a core file */
 #define	MADV_CORE	9	/* revert to including pages in a core file */
 #define	MADV_PROTECT	10	/* protect process from pageout kill */
-
+#define MADV_MERGEABLE 11 /*kernel samepage merging*/
 /*
  * Return bits from mincore
  */
