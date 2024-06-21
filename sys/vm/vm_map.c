@@ -2936,6 +2936,7 @@ vm_map_madvise(
 	case MADV_AUTOSYNC:
 	case MADV_NOCORE:
 	case MADV_CORE:
+	case MADV_MERGEABLE:
 		if (start == end)
 			return (0);
 		modify_map = true;
@@ -3007,6 +3008,8 @@ vm_map_madvise(
 			case MADV_CORE:
 				entry->eflags &= ~MAP_ENTRY_NOCOREDUMP;
 				break;
+			case MADV_MERGEABLE:
+				entry->eflags |= MAP_ENTRY_MERGEABLE
 			default:
 				break;
 			}
