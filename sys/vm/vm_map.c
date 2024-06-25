@@ -3009,7 +3009,10 @@ vm_map_madvise(
 				entry->eflags &= ~MAP_ENTRY_NOCOREDUMP;
 				break;
 			case MADV_MERGEABLE:
-				entry->eflags |= MAP_ENTRY_MERGEABLE
+				entry->eflags |= MAP_ENTRY_MERGEABLE;
+				printf("get MADV_MERGEABLE, MODIFY eflags");
+				if(entry->eflags&MAP_ENTRY_MERGEABLE)
+					printf("successfully");	
 			default:
 				break;
 			}
